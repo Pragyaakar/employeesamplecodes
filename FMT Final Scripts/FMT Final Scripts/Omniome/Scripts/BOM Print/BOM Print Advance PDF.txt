@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf lang="ru=RU" xml:lang="ru-RU">
+    <head>
+      <link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+	<#if .locale == "zh_CN">
+		<link name="NotoSansCJKsc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
+	<#elseif .locale == "zh_TW">
+		<link name="NotoSansCJKtc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
+	<#elseif .locale == "ja_JP">
+		<link name="NotoSansCJKjp" type="font" subtype="opentype" src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
+	<#elseif .locale == "ko_KR">
+		<link name="NotoSansCJKkr" type="font" subtype="opentype" src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
+	<#elseif .locale == "th_TH">
+		<link name="NotoSansThai" type="font" subtype="opentype" src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}" bytes="2" />
+	</#if>
+       <style type="text/css">*{
+		<#if .locale == "zh_CN">
+			font-family: NotoSans, NotoSansCJKsc, sans-serif;
+		<#elseif .locale == "zh_TW">
+			font-family: NotoSans, NotoSansCJKtc, sans-serif;
+		<#elseif .locale == "ja_JP">
+			font-family: NotoSans, NotoSansCJKjp, sans-serif;
+		<#elseif .locale == "ko_KR">
+			font-family: NotoSans, NotoSansCJKkr, sans-serif;
+		<#elseif .locale == "th_TH">
+			font-family: NotoSans, NotoSansThai, sans-serif;
+		<#else>
+			font-family: NotoSans, sans-serif;
+		</#if>
+		}
+        table {
+			font-size: 9pt;
+			/*table-layout: fixed;*/
+		}
+        th {
+            font-weight: bold;
+            font-size: 8pt;
+            vertical-align: middle;
+            padding: 5px 6px 3px;
+            background-color: #e3e3e3;
+            color: #333333;
+        }
+        td {
+            /*padding: 4px 6px;*/
+        }
+		td p { align:left }
+        b {
+            font-weight: bold;
+            color: #333333;
+        }
+        table.header td {
+            padding: 0;
+            font-size: 10pt;
+        }
+        table.footer td {
+            padding: 0;
+            font-size: 8pt;
+        }
+        table.itemtable th {
+            padding-bottom: 8px;
+            padding-top: 8px;
+          	background-color: #000000;
+          	font-size:8pt;
+            
+        }
+         table.itemtable td {
+          	border:0.5px solid black;
+            padding-bottom: 8px;
+            padding-top: 8px;
+            font-size:8pt;
+        }
+         table.itemtableInner td {
+          	border:none;
+            padding-bottom: 8px;
+            padding-top: 8px;
+            font-size:8pt;
+        }
+        table.body td {
+            padding-top: 2px;
+        }
+        span.title {
+            font-size: 28pt;
+        }
+        span.number {
+            font-size: 16pt;
+        }
+        span.itemname {
+            font-weight: bold;
+            line-height: 150%;
+        }
+        hr {
+            width: 100%;
+            color: #d3d3d3;
+            background-color: #d3d3d3;
+            height: 1px;
+        }
+</style>
+
+        <macrolist>
+            <macro id="nlheader">
+              <table cellspacing="1" cellpadding="1" style="width: 100%;" font-size="10pt">
+                    <tr>
+				<td align="left" width="50%" rowspan="9"><img src = "http://5711325-sb1.shop.netsuite.com/core/media/media.nl?id=14&amp;c=5711325_SB1&amp;h=178caf771c9e6222949b" width = "150" height = "50"/></td>
+                      <td align="center" width="50%" colspan="2" margin-top="20px"> <span class="title" style="font-size:20pt;"><b>Work Order</b></span></td>
+                        <td align="right" width="50%" colspan="2" margin-top="20px"> <span class="title" style="font-size:19pt;">Bill of Materials</span></td>
+                      
+                    </tr>
+              </table>
+              
+				<table style="width: 100%;" font-size="10pt">
+                    
+                    <tr>
+                      
+                        <td align="left" style="font-weight:bold; text-align: left;" margin-top="5px">Work Order#</td>
+                        <td align="left" margin-top="5px">${JSON.data.orderno}</td>
+                    </tr>
+
+                    <tr>
+                     
+                        <td align="left" style="font-weight:bold;" margin-top="5px">Assembly</td>
+                        <td align="left" margin-top="5px">${JSON.data.assembly}</td>
+                    </tr>
+                  
+                  <tr>
+                      
+                        <td align="left" style="font-weight:bold;" margin-top="5px">Display Name</td>
+                        <td align="left" margin-top="5px">${JSON.data.displayname}</td>
+                    </tr>
+                  
+                    
+                    <tr> 
+                        <td align="left" style="font-weight:bold;" margin-top="5px">Lot/Serial #</td>
+                        <td align="left" margin-top="5px">${JSON.data.lotnumber}</td>
+                    </tr>
+       
+                    <tr>
+                        <td align="left" style="font-weight:bold;" margin-top="5px">Revision</td>
+                        <td align="left" margin-top="5px">${JSON.data.billOfMatRevi}</td>
+                    </tr>
+                  
+					<tr>
+                        <td align="left" style="font-weight:bold;" margin-top="5px">Qty. Required</td>
+                        <td align="left" margin-top="5px">${JSON.data.qtyrequired}</td>
+                    </tr>
+
+                    <tr>         
+                        <td align="left" style="font-weight:bold;" margin-top="5px">Unit of Measure</td>
+                        <td align="left" margin-top="5px">${JSON.data.unitsmeasure}</td>
+                    </tr>
+					<tr>         
+                        <td align="left" style="font-weight:bold;" margin-top="5px">Production Start Date</td>
+                        <td align="left" margin-top="5px">${JSON.data.productionstartdate}</td>
+                    </tr>
+                    <tr>         
+                        <td align="left" style="font-weight:bold;" margin-top="5px">Production End Date</td>
+                        <td align="left" margin-top="5px">${JSON.data.productionenddate}</td>
+                    </tr>
+
+                </table>
+              
+              <table width="100%" class="itemtable" style = "margin-top: 62px;">      
+        <tr>
+          <th style="color:white " align="left" colspan="4">Item</th>
+          <th style="color:white " align="left" colspan="4">Description</th>
+          <th style="color:white " align="left" colspan="4">Qty<br/>Required</th>
+          <th style="color:white " align="left" colspan="4">UOM</th>
+          <th style="color:white " align="left" colspan="1">Location</th>
+         <th style="color:white " align="left" colspan="1">Quantity</th> 
+          <th style="color:white " align="left" colspan="1">Lot/Serial #</th>
+          <th style="color:white " align="left" colspan="1">Expiry Date</th>
+
+        </tr>
+    
+        
+         <#list JSON.data.lines as line> 
+
+           <tr>
+              <td align="left" colspan="4">${line.item_text}</td>
+              <td align="left" colspan="4">${line.description}</td>
+              <td align="right" colspan="4">${line.qty_required}</td>
+              <td align="center" colspan="4">${line.unit}</td>
+             <td align="left">
+             	<table class="itemtableInner"><#list line.sublines as subline>
+                  <tr>
+                    <td>${subline.binnum}</td>    
+                  </tr>
+                  </#list></table>
+             </td>
+            
+             <td align="left">
+             	<table class="itemtableInner"><#list line.sublines as subline>
+                  <tr>
+                    <td>${subline.qtyissued}</td>    
+                  </tr>
+                  </#list></table>
+             </td>
+             
+             <td align="left">
+             	<table class="itemtableInner"><#list line.sublines as subline>
+                  <tr>
+                    <td>${subline.inventorynumber}</td>    
+                  </tr>
+                  </#list></table>
+             </td>
+             
+             <td align="left">
+             	<table class="itemtableInner"><#list line.sublines as subline>
+                  <tr>
+                    <td>${subline.expirydate}</td>    
+                  </tr>
+                  </#list></table>
+             </td>
+             
+
+                    
+              
+           </tr>
+     
+           	
+           
+           </#list>
+     </table>
+              
+            </macro>
+            <macro id="nlfooter">
+                <table class="footer" style="width: 100%;">
+                    <tr>
+                        <td align="right">
+                            <pagenumber/>
+                            of
+                            <totalpages/>
+                        </td>
+                    </tr>
+                </table>
+            </macro>
+        </macrolist>
+    </head>
+  
+    <body header="nlheader" header-height="29%" footer="nlfooter" footer-height="10pt" padding="0.5in 0.5in 0.5in 0.5in" size="Letter">
+   <#if JSON?has_content>
+      <#if JSON.data?has_content>
+      <table>
+      <tr>
+      <td>&nbsp; <br/> &nbsp; </td>
+      </tr>
+        <tr>
+      <td>&nbsp; <br/> &nbsp; </td>
+      </tr>
+      </table>
+        <table>
+          <tr><td></td></tr>
+        </table>
+      
+   </#if>
+</#if>
+       
+    </body>
+</pdf>

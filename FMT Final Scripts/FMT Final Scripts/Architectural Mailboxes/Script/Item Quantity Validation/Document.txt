@@ -1,0 +1,4 @@
+
+
+1. Set Validation on transaction as if on hand quantity is zero then show a alert message. 
+2. The alert message should be displayed on save record.

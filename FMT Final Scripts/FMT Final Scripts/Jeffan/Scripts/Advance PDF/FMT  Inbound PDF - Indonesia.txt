@@ -1,0 +1,45 @@
+<?xml version="1.0"?><!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+	<link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+	<#if .locale == "zh_CN">
+		<link name="NotoSansCJKsc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
+	<#elseif .locale == "zh_TW">
+		<link name="NotoSansCJKtc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
+	<#elseif .locale == "ja_JP">
+		<link name="NotoSansCJKjp" type="font" subtype="opentype" src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
+	<#elseif .locale == "ko_KR">
+		<link name="NotoSansCJKkr" type="font" subtype="opentype" src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
+	<#elseif .locale == "th_TH">
+		<link name="NotoSansThai" type="font" subtype="opentype" src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}" bytes="2" />
+	</#if>
+    <style type="text/css">
+      table
+      {
+        font-size: 9pt;
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      td
+      {
+        font-size: 15;
+        margin: 40px 0px;
+        align: center;
+      }
+</style>
+</head>
+<body margin-top="10%" margin-bottom="10%" padding="0.5in 0.5in 0.5in 0.5in" size="Letter">
+ 
+    <#list results as result>
+      
+      <#assign x = result.quantityexpected?number>
+        
+<#list 1..x as i>
+ <table>
+   <tr>
+     <td><barcode codetype="code128" style="width: 420pt; height: 120pt;" showtext="false" value="${result.item}"/>${result.item}&nbsp;&nbsp;${result.expecteddeliverydate}</td>
+   </tr>
+ </table> </#list></#list>
+</body>
+</pdf>

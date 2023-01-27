@@ -1,0 +1,302 @@
+<?xml version="1.0"?><!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+              <link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+              <#if .locale == "zh_CN">
+                             <link name="NotoSansCJKsc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
+              <#elseif .locale == "zh_TW">
+                             <link name="NotoSansCJKtc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
+              <#elseif .locale == "ja_JP">
+                             <link name="NotoSansCJKjp" type="font" subtype="opentype" src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
+              <#elseif .locale == "ko_KR">
+                             <link name="NotoSansCJKkr" type="font" subtype="opentype" src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
+              <#elseif .locale == "th_TH">
+                             <link name="NotoSansThai" type="font" subtype="opentype" src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}" bytes="2" />
+              </#if>
+    <macrolist>
+        <macro id="nlheader">
+            <table class="header" style="width: 95%; padding-left: 0pt;"><tr>
+              <td rowspan="1">
+      <#if record.subsidiary.id="2">
+    <img src="https://5602779.app.netsuite.com/core/media/media.nl?id=3224&amp;c=5602779&amp;h=70a7eba2a33a41a06aed" style="float: left; margin: 7px; width: 120px; height: 60px; left: 20pt;"/>
+    <#elseif record.subsidiary.id="1">
+      <img src="https://5602779.app.netsuite.com/core/media/media.nl?id=3224&amp;c=5602779&amp;h=70a7eba2a33a41a06aed" style="float: left; margin: 7px;left: 20pt;"/>
+    <#elseif record.subsidiary.id="3">
+      <img src="https://5602779.app.netsuite.com/core/media/media.nl?id=2809&amp;c=5602779&amp;h=dc081b86ab55b75a846b" style="float: left; margin: 7px; width: 140px; height: 65px;left: 20pt;"/>
+       <#elseif record.subsidiary.id="11">
+      <img src="https://5602779.app.netsuite.com/core/media/media.nl?id=239973&amp;c=5602779&amp;h=fZhs1MhD76CIiAO1a-qpYd-ZTOSjf0dCHSqXY3YlurLdadq1" style="float: left; margin: 7px; width: 140px; height: 100px;left: 20pt;"/>
+    <#elseif record.subsidiary.id="5">
+      <img src="https://5602779.app.netsuite.com/core/media/media.nl?id=241321&amp;c=5602779&amp;h=hJTGaBHqLwqJG3roQD0CAjq8akonWhvrY_FH4s1t-Hfluuyp" style="float: left; margin: 7px; width: 100px; height: 90px;left: 20pt;"/>
+    <#elseif record.subsidiary.id="7" || record.subsidiary.id="9" || record.subsidiary.id="10">
+      <img src="https://5602779.app.netsuite.com/core/media/media.nl?id=241321&amp;c=5602779&amp;h=hJTGaBHqLwqJG3roQD0CAjq8akonWhvrY_FH4s1t-Hfluuyp" style="float: left; margin: 7px;"/>
+        <#elseif record.subsidiary.id="12" || record.subsidiary.id="14">
+      <img src="https://5602779.app.netsuite.com/core/media/media.nl?id=239968&amp;c=5602779&amp;h=UKNqpOSIqu9oU-gGGwHJ2xm6b0mJ1MhcaMA5wmqovrV8XGG9" style="float: left; margin: 7px;left: 20pt; width: 130px; height: 75px;"/>
+    <#elseif record.subsidiary.id="20">
+      <img src="https://5602779-sb1.app.netsuite.com/core/media/media.nl?id=188779&amp;c=5602779_SB1&amp;h=f9fef6d115c710cfa1fc" style="float: left; margin: 7px;left: 20pt;"/>
+<#else>
+        <img src="${companyInformation.logoUrl}" style="float: left; margin: 7px; padding-left: 20pt;"/>
+</#if></td>
+      <td rowspan="1" style="font-size: 12px; padding-left: -40pt; padding-top: 13pt;" class="nameandaddress" >${subsidiary.mainaddress_text}</td>
+      <td align="right" style="background-color: rgb(255, 255, 255); width: 276px;"><span style="font-size:12px;"><span style="font-size:18px; line-height: 25; right: -10pt;">${record@title}</span><br /><b>#</b>${record.tranid}<br /><b>Date: </b>${record.trandate}<br /><b>Terms: </b>${record.terms}<br/><b>Customer Number: </b>${record.entity.entityid}<br/><b>Invoice Due Date: </b>${record.duedate}<br/><b>Blanket PO: </b>${record.custbody_fmt_blanket_po}</span></td>
+              </tr></table>
+        </macro>
+        <macro id="nlfooter">
+          <table class="footer" style="width: 95%; left: 20pt; padding-top: -20pt;"><tr>
+          <td rowspan="1" style="font-size: 12px;" class="footerinfo"><br/>${subsidiary.custrecord_fmt_invoice_footer_info}</td>
+          </tr></table>
+        </macro>
+    </macrolist>
+    <style type="text/css">table {
+         <#if .locale == "zh_CN">
+         font-family: stsong, sans-serif;
+         <#elseif .locale == "zh_TW">
+         font-family: msung, sans-serif;
+         <#elseif .locale == "ja_JP">
+         font-family: heiseimin, sans-serif;
+         <#elseif .locale == "ko_KR">
+         font-family: hygothic, sans-serif;
+         <#elseif .locale == "ru_RU">
+         font-family: verdana;
+         <#else>
+         font-family: sans-serif;
+         </#if>
+         font-size: 9pt;
+         table-layout: fixed;
+         }
+         table { page-break-inside:auto }
+         tr{ page-break-inside:avoid; page-break-after:auto }
+         th {
+         font-weight: bold;
+         font-size: 8pt;
+         vertical-align: middle;
+         padding: 5px 6px 3px;
+         background-color: #d4e9eb;
+         color: #333333;
+         }
+         td {
+         padding: 4px 2px;
+         }
+         b {
+         font-weight: bold;
+         color: #333333;
+         }
+         table.header td {
+         padding: 0;
+         font-size: 10pt;
+         }
+         table.footer td {
+         padding: 0;
+         font-size: 8pt;
+         }
+         table.itemtable td {
+         font-size:small
+         }
+         table.body td {
+         padding-top: 2px;
+         }
+         table.total {
+         page-break-inside: avoid;
+         }
+         tr.totalrow {
+         background-color: #d4e9eb;
+         line-height: 200%;
+         }
+         td.totalboxtop {
+         font-size: 8pt;
+         padding-top: 6px;
+         padding-bottom: 2px;
+         background-color: #d4e9eb
+         }
+         td.addressheader {
+         font-size: 8pt;
+         padding-top: 6px;
+         padding-bottom: 2px;
+         border-bottom:1pt;
+         }
+         td.address {
+         padding-top: 0;
+         background-color: #d4e9eb
+         }
+         td.totalboxmid {
+         padding-top: 0;
+         }
+         td.totalboxbot {
+         background-color: #d4e9eb;
+         font-weight: bold;
+         }
+         span.title {
+         font-size: 28pt;
+         }
+         span.number {
+         font-size: 16pt;
+         }
+         span.itemname {
+         font-weight: bold;
+         line-height: 150%;
+         }
+         .fz{
+         font-size:10px !important;
+         }
+         .tablepress thead th,
+         .tablepress tfoot th {
+         background-color: #d4ccdf;
+         }
+         div.remittanceSlip {
+             width: 100%;
+             /* To ensure minimal height of remittance slip */
+             height: 200pt;
+             page-break-inside: avoid;
+             page-break-after: avoid;
+         }
+         hr {
+             border-top: 1px dashed #d3d3d3;
+             width: 100%;
+             color: #ffffff;
+             background-color: #ffffff;
+             height: 1px;
+         }
+                             .backdown{
+              font-size:14px, 
+             padding: 0px
+         }
+        * {
+            margin: 0;
+        }
+        html, body {
+            height: 100%;
+        }
+        .wrapper {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -70px; /* the bottom margin is the negative value of the footer's height */
+        }
+        .footer, .push {
+            height: 70px; /* .push must be the same height as .footer */
+        }
+</style>
+</head>
+<body header="nlheader" header-height="14%" footer="nlfooter" footer-height="20pt" padding="0.5in 0.5in 0.5in 0.5in" size="Letter">
+    <table class="body" style="width: 100%; padding-left: 10pt; padding-top: 40pt; line-height: 10;"><tr>
+              <td colspan="10"><b>${record.billaddress@label}</b></td>
+                    <#if record.custbody_fmt_site_name!= ''>
+                      <td colspan="10"><b>Site Name</b></td></#if>
+              </tr>
+              <tr>
+      <td class="address" colspan="10" rowspan="2" style="background-color: rgb(255, 255, 255);"><p style="text-align: left;">${record.billaddress}</p></td>
+      <td class="address" colspan="10" rowspan="2" style="background-color: rgb(255, 255, 255);"><p style="text-align: left;">${record.custbody_fmt_site_name}</p></td>
+              </tr></table>
+&nbsp;
+
+<table class="body" style="width: 100%; padding-top: 0pt;"><tr>
+    <th colspan="10">Order Number</th>
+              <th colspan="10">Customer PO #</th>
+    <th colspan="10">Ship From</th>
+    <th colspan="10">Facility ID</th>
+              <th colspan="10">Invoice Memo</th>
+              </tr>
+              <tr style="white-space:pre;">
+      <td colspan="10" style="text-align: left;"><p style="text-align: left;">${record.createdfrom}</p></td>
+      <td colspan="10" style="text-align: left;"><p style="text-align: left;">${record.otherrefnum}</p></td>
+      <td colspan="10" style="text-align: left;"><p style="text-align: left;">${record.custbody_fmt_invoice_ship_from}</p></td>
+      <td colspan="10" style="text-align: left;"><p style="text-align: left;">${record.custbody_fmt_invouce_facility_id}</p></td>
+      <td colspan="10" style="text-align: left;"><p style="text-align: left;">${record.custbody_nc_invoice_memo}</p></td>
+              </tr></table>
+<br />
+
+
+<#assign arrToSort = [] />
+<#list record.item as myLine>
+			<#if myLine.custcol_ticket_number?has_content>
+              <#assign arrToSort = arrToSort + [myLine]/>
+              </#if>
+</#list>
+
+<#assign arrSorted = [] />
+    <#list arrToSort?sort_by('custcol_ticket_number') as tempItem>
+        <#assign arrSorted = arrSorted + [tempItem]>
+    </#list>
+
+
+
+<#if record.item?has_content>
+<table class="itemtable" style="width: 100%; margin-top: 5px;"><!-- start items -->
+              <thead><tr>
+              <th align="left" colspan="4">Ticket Date</th>
+              <th align="left" colspan="4">Ticket #</th>
+    <th align="left" colspan="4">Scale Ticket Number</th>
+    <th align="center" colspan="8">Description</th>
+    <th align="center" colspan="3">Units</th>
+              <th align="center" colspan="4">Quantity</th>
+              <th align="center" colspan="5">Rate</th>
+              <th align="center" colspan="5">Amount</th>
+              </tr></thead>
+    <#list arrSorted as newLine>
+    <#if newLine.itemtype != "Discount">
+
+<tr style="background-color: ${((newLine?index % 2)==0)?string('#ffffff', '#ede9f2')};">
+              <td align="left" colspan="4"><p style="text-align: left;">${newLine.custcol11}</p></td>
+              <td align="left" colspan="4"><p style="text-align: left;">${newLine.custcol_ticket_number}</p></td>
+              <td align="left" colspan="4">${newLine.custcol_fmt_scale_number}</td>
+    <td align="center" colspan="8">${newLine.description}</td>
+              <td align="center" colspan="3">${newLine.units}</td>
+              <td align="center" colspan="4">${newLine.quantity}</td>
+              <td align="center" colspan="5">${newLine.rate}</td>
+              <td align="center" colspan="5">${newLine.amount}</td>
+</tr>
+</#if>
+</#list>
+<#list record.item as item>
+<#if item.itemtype = "Discount">
+
+<tr style="background-color: ${((item_index % 2)==0)?string('#ffffff', '#ede9f2')};">
+    <td align="left" colspan="4"><p style="text-align: left;">${item.custcol11}</p></td>
+    <td align="left" colspan="4"><p style="text-align: left;">&nbsp;</p></td>
+    <td align="left" colspan="4">&nbsp;</td>
+<td align="center" colspan="8">${item.description}</td>
+    <td align="center" colspan="3">&nbsp;</td>
+    <td align="center" colspan="4">&nbsp;</td>
+    <td align="center" colspan="5">${item.rate}</td>
+    <td align="center" colspan="5">${item.amount}</td>
+</tr>
+</#if><!-- end items -->
+</#list>
+</table>
+</#if>
+
+<table align="right" style="page-break-after:avoid;"><tr>
+              <td colsapan="8">__________________________</td>
+              </tr>
+              <tr>
+      <#if record.custbody_totaltons?has_content>
+              <td colspan="4">Total Tons</td>
+              <td align="right" colspan="4">${record.custbody_totaltons}</td></#if>
+  </tr>
+              <tr>
+              <td colspan="4">Subtotal</td>
+              <td align="right" colspan="4">${record.subtotal}</td>
+              </tr>
+              <tr>
+              <td colspan="4">Tax ( ${record.taxrate}% )</td>
+              <td align="right" colspan="4">${record.taxtotal}</td>
+              </tr>
+              <tr>
+              <td colspan="4" style="background-color:#d4e9eb"><b><u>Total</u></b></td>
+              <td colspan="4" style="background-color:#d4e9eb"><b>${record.total}</b></td>
+              </tr>
+</table>
+
+<div class="footer">
+<hr />
+
+<table style="width: 100%; margin-top: 10px;"><tr>
+              <th align="center" colspan="4">Remit To</th>
+              </tr>
+              <tr>
+              <td align="center" border=".5" colspan="4" style="font-size:10pt">${subsidiary.custrecord_denali_remit_info}<br/><br/><br/><br/>Customer Signature: _________________________________</td>
+              </tr></table>
+</div>
+</body>
+</pdf>
+
+

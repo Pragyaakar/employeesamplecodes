@@ -1,0 +1,48 @@
+<?xml version="1.0"?><!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+	<link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+	<#if .locale == "zh_CN">
+		<link name="NotoSansCJKsc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
+	<#elseif .locale == "zh_TW">
+		<link name="NotoSansCJKtc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
+	<#elseif .locale == "ja_JP">
+		<link name="NotoSansCJKjp" type="font" subtype="opentype" src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
+	<#elseif .locale == "ko_KR">
+		<link name="NotoSansCJKkr" type="font" subtype="opentype" src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
+	<#elseif .locale == "th_TH">
+		<link name="NotoSansThai" type="font" subtype="opentype" src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}" bytes="2" />
+	</#if>
+    <style type="text/css">
+td { padding: 2px 4px; width: 100%; display: flex;}
+</style>
+</head>
+<body padding="0.1in 0.1in 0.1in 0.1in" size="letter-landscape" width="2in" height="4in" >
+ 
+    <#list results as result>
+      
+       <#assign x = result.quantity?number>
+        
+<#list 1..x as i>
+      <table style="page-break-after: always; margin-left:2px;" width="4in" height="2in" rotate="90">
+  
+    <tr width="100%" >
+	<td width="100%" align="center" style="font-size:18px; margin-top:185px;">(11S) TGCS PN SN : &nbsp; ${result.inventorynumber}</td>
+	</tr><tr>
+        <td width="100%" align="center"><barcode codetype="code128" align="left" style="width: 250pt; height: 25pt; margin-bottom:5px; " showtext="false" value="${result.inventorynumber}"/></td></tr>
+        
+   <tr>
+   	<td width="100%" align="center" style="font-size:17px;">(4L) Origin: ${result.formulatext_2} &nbsp; Date : ${result.formulatext_1}<br/></td>   
+   </tr>
+  
+   <tr>
+   	<td width="100%" align="center"><barcode codetype="code128" align="left" style="width: 90pt; height: 25pt;" showtext="false" value="${result.formulatext_2}"/></td>   
+   </tr>
+   
+        <tr>
+   	<td width="100%" align="center" style="font-size:17px;">Made in : ${result.formulatext}</td>  
+   </tr>
+       
+        </table></#list></#list>
+      </body>
+</pdf>

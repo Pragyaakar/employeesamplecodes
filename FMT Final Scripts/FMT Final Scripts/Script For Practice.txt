@@ -1,0 +1,24 @@
+
+
+1. On transaction show an alert message on save record if the on hand quantity is zero.
+2. Create a Map/Reduce script send an email to customer on daily,weekly and monthly bases attached PDF aur CSV to the email in PDF and CSV attached a sales order data.
+3. Create a User event script as on transaction line level there is subscription field, from the subscription record get subscription plan field and set it on 
+   transaction line level custom field.
+4. Create a advance PDF on Invoice If subscription are captured on line level are same then grouping of data and also sum of the amount, gross amount as per the 
+   subscription.
+5. Create a save search on inbound shipment and attached a PDF to created save search and on PDF print item barcode, and print barcode as per quantity.
+6. Create a map reduce script to set a transaction date on Item fulfillment line level custom field and also set same date on sales order if item fulfillment is 
+   created from Sales order.
+7. On Work order create a custom button as "BOM Print" on click generate a advance pdf. use render object for attaching a advance pdf.
+8. script to auto assign Lot Numbers for Item Receipts and for Work Orders. Create a user event script on Item receipt and on work order. In inventory detail field set 
+   auto generated lot number as following format 
+   For Lot item set 0000005000, 0000005001 etc. and for serialized item set OM Yr - 21, Month - 06, number - 1000
+9. Create a Sales Order from requisition capture all values from requisition to sales order once the sales order is created 
+   the generated transaction number will be set on requisition and requisition id will be set on sales order.Consider following 
+   scenarios:
+   a. If the multiple requisitions and same requestor are there then for the same requestor create one sales order
+   b. If multiple requisitions and different requestor are there then generate different sales order.
+10. On purchase order show an alert message check the vendor which is available on purchase order and vendor which is available on item if both are different then 
+    show an alert message
+11. Create a map reduce script if on transaction item having back order quantity then close the whole oder, check the item wise location available quantity once all the
+    item quantity are available then open an order uncheck a line level closed checkbox.
